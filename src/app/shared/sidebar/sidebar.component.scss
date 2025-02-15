@@ -1,0 +1,21 @@
+/* sidebar.component.scss */
+nav {
+    width: 90px;
+    height: 100vh;
+    background: #1a64ae;
+    color: white;
+    &:hover { 
+        width: 250px;
+        background: #a0cdfa; }
+
+    mat-nav-list {
+      padding-top: 0;
+      
+      a {
+        color: white;
+        mat-icon { margin-right: 15px; }
+        
+        &:hover { background: #a0cdfa; }
+      }
+    }
+  }
