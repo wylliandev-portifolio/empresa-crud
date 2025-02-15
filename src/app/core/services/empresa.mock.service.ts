@@ -13,6 +13,10 @@ export class EmpresaMockService {
     return this.empresas$.asObservable();
   }
 
+  getEmpresasById(id: number) {
+    return of(this.empresas$.value.find(e => e.id === id));
+  }
+
   createEmpresa(empresa: Omit<Empresa, 'id'>) {
     const newEmpresa = { ...empresa, id: Date.now() };
     this.empresas$.next([...this.empresas$.value, newEmpresa]);

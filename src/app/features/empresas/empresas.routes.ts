@@ -1,20 +1,20 @@
-// import { Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-// export const empresasRoutes: Routes = [
-//   {
-//     path: '',
-//     loadComponent: () => import('./list/empresa-list.component')
-//   },
-//   {
-//     path: 'nova',
-//     loadComponent: () => import('./create/empresa-create.component')
-//   },
-//   {
-//     path: ':id/editar',
-//     loadComponent: () => import('./edit/empresa-edit.component')
-//   },
-//   {
-//     path: ':id',
-//     loadComponent: () => import('./details/empresa-details.component')
-//   }
-// ];
+export const empresasRoutes: Routes = [
+  {
+    path: '',
+    loadComponent: () => import('./empresas.component').then(m => m.EmpresasComponent)
+  },
+  {
+    path: 'nova',
+    loadComponent: () => import('./details/empresa-details.component').then(m => m.EmpresaDetailsComponent)
+  },
+  {
+    path: ':id/editar',
+    loadComponent: () => import('./details/empresa-details.component').then(m => m.EmpresaDetailsComponent)
+  },
+  {
+    path: ':id',
+    loadComponent: () => import('./details/empresa-details.component').then(m => m.EmpresaDetailsComponent)
+  }
+];

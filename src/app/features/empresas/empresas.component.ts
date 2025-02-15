@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
@@ -14,14 +14,16 @@ import { Empresa } from '../../core/interfaces/empresa-interface';
   templateUrl: './empresas.component.html',
   styleUrl: './empresas.component.scss'
 })
-export class EmpresasComponent {
-   empresas$ = new BehaviorSubject<Empresa[]>([]);
+export class EmpresasComponent implements OnInit {
+  empresas$;
   
   constructor(private service: EmpresaMockService) {
-
+    this.empresas$ = service.getEmpresas();
   }
   
-
+  ngOnInit(): void {
+   
+  }
   
   deleteEmpresa(id: number) {
     this.service.deleteEmpresa(id).subscribe();

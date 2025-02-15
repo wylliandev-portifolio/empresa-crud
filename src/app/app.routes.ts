@@ -11,7 +11,7 @@ export const routes: Routes = [
     },
     {
         path: 'empresas',
-        loadComponent: () => import('./features/empresas/empresas.component').then(m => m.EmpresasComponent) 
+        loadChildren: () => import('./features/empresas/empresas.routes').then(m => m.empresasRoutes) 
     },
     {
         path: 'sidebar',
@@ -22,6 +22,6 @@ export const routes: Routes = [
         loadComponent: () => import('./features/usuarios/usuarios.component').then(m => m.UsuariosComponent) 
     },
     { 
-        path: '**', redirectTo: 'notfound' 
+        path: '**', redirectTo: 'dashboard' 
     }        
 ];
