@@ -13,8 +13,9 @@ export class EmpresaMockService {
     return this.empresas$.asObservable();
   }
 
-  getEmpresasById(id: number) {
-    return of(this.empresas$.value.find(e => e.id === id));
+  getEmpresaById(id: number) {
+    const empresa = this.empresas$.value.find(e => e.id === id);
+    return of(empresa);
   }
 
   createEmpresa(empresa: Omit<Empresa, 'id'>) {
@@ -24,8 +25,20 @@ export class EmpresaMockService {
   }
 
   updateEmpresa(id: number, empresa: Partial<Empresa>) {
-    const updated = this.empresas$.value.map(e => 
-      e.id === id ? { ...e, ...empresa } : e
+    const empresa222 = this.empresas$.getValue().find(e => e.id === id);
+    const asnasa= empresa.nome;
+
+    const updated = this.empresas$.value.map(
+      e => 
+      {
+        if(e.id === id) {
+          return {
+             ...e, ...empresa 
+            }
+        }
+        else
+          return e;
+      }
     );
     this.empresas$.next(updated);
     return of(updated.find(e => e.id === id));

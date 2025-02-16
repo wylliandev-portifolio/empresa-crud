@@ -1,17 +1,60 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input matInput placeholder="Nome" formControlName="nome">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="CNPJ" formControlName="cnpj" mask="00.000.000/0000-00">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Endereço" formControlName="endereco">
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">
-      {{ isEdit ? 'Atualizar' : 'Cadastrar' }}
+<div>
+  <div class="mat-card-actions">
+    <button mat-flat-button color="primary" onclick="window.history.back()">
+      Voltar
     </button>
+  </div>
+  <h1>{{ isEdit ? 'Editar' : 'Nova' }} Empresa</h1>
+ 
+</div>
+<div class="flex-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+    <div class="flex-container-row">
+      <div class="flex-container-column">
+        <mat-label>
+          Nome
+        </mat-label>
+        <mat-form-field>
+          <input matInput placeholder="Nome" formControlName="nome">
+        </mat-form-field>
+      </div>
+      
+
+      <!-- CNPJ  -->
+      <div class="flex-container-column">
+        <mat-label>
+          CNPJ
+        </mat-label>
+        <mat-form-field>
+          <input matInput placeholder="CNPJ" formControlName="cnpj" mask="00.000.000/0000-00">
+        </mat-form-field>
+      </div>
+
+      <!-- Endereco -->
+      <div class="flex-container-column">
+        <mat-label>
+          Endereço
+        </mat-label>
+        <mat-form-field>
+          <input matInput placeholder="Endereço" formControlName="endereco">
+        </mat-form-field>
+      </div>
+
+      <!-- Func -->
+      <div class="flex-container-column">
+        <mat-label>
+          funcionarios
+        </mat-label>
+        <mat-form-field>
+          <input matInput placeholder="funcionarios" formControlName="funcionarios">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mat-card-actions">
+      <button mat-raised-button color="primary" type="submit">
+        {{ isEdit ? 'Atualizar' : 'Cadastrar' }}
+      </button>
+    
+    </div>
   </form>
+</div>
