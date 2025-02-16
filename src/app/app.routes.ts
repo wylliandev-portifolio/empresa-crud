@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: 'notfound',
+        path: 'not-found',
         loadComponent: () => import('./shared/not-found/not-found.component').then(m => m.NotFoundComponent)
     },
     {

@@ -4,8 +4,6 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { EmpresaMockService } from '../../core/services/empresa.mock.service';
-import { BehaviorSubject } from 'rxjs';
-import { Empresa } from '../../core/interfaces/empresa-interface';
 
 @Component({
   selector: 'app-empresas',

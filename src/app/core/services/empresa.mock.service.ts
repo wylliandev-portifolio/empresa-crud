@@ -25,8 +25,6 @@ export class EmpresaMockService {
   }
 
   updateEmpresa(id: number, empresa: Partial<Empresa>) {
-    const empresa222 = this.empresas$.getValue().find(e => e.id === id);
-    const asnasa= empresa.nome;
 
     const updated = this.empresas$.value.map(
       e => 
