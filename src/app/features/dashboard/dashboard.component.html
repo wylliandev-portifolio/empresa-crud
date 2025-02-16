@@ -1,1 +1,62 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <!-- Filtros -->
+    <mat-toolbar class="filters-toolbar">
+      <div class="filters">
+        <mat-form-field appearance="outline">
+          <mat-label>Empresa</mat-label>
+          <mat-select [(value)]="selectedCompany" (selectionChange)="updateDashboard()">
+           <mat-option *ngFor="let company of companies" [value]="company">
+              {{ company }}
+            </mat-option> 
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Ano</mat-label>
+          <mat-select [(value)]="selectedYear" (selectionChange)="updateDashboard()">
+           <mat-option *ngFor="let year of years" [value]="year">
+              {{ year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-toolbar>
+  
+    <!-- Gráficos -->
+    <div class="charts-grid">
+      <!-- Gráfico de Linhas -->
+      <mat-card class="chart-card">
+        <mat-card-title>Vendas Mensais ({{ selectedYear }})</mat-card-title>
+        <ngx-charts-line-chart
+          [view]="[400, 300]"
+          [results]="salesData"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="true">
+        </ngx-charts-line-chart>
+      </mat-card>
+  
+      <!-- Pizza -->
+      <mat-card class="chart-card">
+        <mat-card-title>Participação de Mercado</mat-card-title>
+        <ngx-charts-pie-chart
+          [view]="[400, 300]"
+          [results]="marketShareData"
+          [legend]="true"
+          [labels]="true">
+        </ngx-charts-pie-chart>
+      </mat-card>
+  
+      <!-- Barras -->
+      <mat-card class="chart-card">
+        <mat-card-title>Receita por Região</mat-card-title>
+        <ngx-charts-bar-vertical
+          [view]="[400, 300]"
+          [results]="revenueData"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="true">
+        </ngx-charts-bar-vertical>
+      </mat-card>
+    </div>
+  </div>
